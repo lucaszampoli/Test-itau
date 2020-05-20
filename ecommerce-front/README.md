@@ -14,6 +14,6 @@ Instalar node 10 ou superios, angular/cli 7 ou superior.
 
 ## Start Projeto
 
-Digite `npm install.`
+Digite `npm install`
 Depois `ng serve` 
 ----
