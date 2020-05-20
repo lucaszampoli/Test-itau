@@ -125,7 +125,7 @@ export class CartService {
     }
 
     clearLocalCart() {
-        console.log('clear local cart');
+        console.log('limpa cart');
         this.cookieService.delete('cart');
         this.localMap = {};
     }

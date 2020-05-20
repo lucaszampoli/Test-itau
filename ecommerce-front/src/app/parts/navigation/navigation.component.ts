@@ -41,12 +41,10 @@ export class NavigationComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.currentUserSubscription.unsubscribe();
-        // this.name$.unsubscribe();
-    }
+          }
 
     logout() {
         this.userService.logout();
-        // this.router.navigate(['/login'], {queryParams: {logout: 'true'}} );
-    }
+       }
 
 }

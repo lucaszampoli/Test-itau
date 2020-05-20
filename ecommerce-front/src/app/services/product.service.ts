@@ -20,14 +20,12 @@ export class ProductService {
         const url = `${this.productUrl}?page=${page}&size=${size}`;
         return this.http.get(url)
             .pipe(
-                // tap(_ => console.log(_)),
             )
     }
 
     getCategoryInPage(categoryType: number, page: number, size: number): Observable<any> {
         const url = `${this.categoryUrl}/${categoryType}?page=${page}&size=${size}`;
         return this.http.get(url).pipe(
-            // tap(data => console.log(data))
         );
     }
 
@@ -35,7 +33,7 @@ export class ProductService {
         const url = `${this.productUrl}/${id}`;
         return this.http.get<ProductInfo>(url).pipe(
             catchError(_ => {
-                console.log("Get Detail Failed");
+                console.log("falha detalhe");
                 return of(new ProductInfo());
             })
         );
@@ -59,17 +57,15 @@ export class ProductService {
 
 
     /**
-     * Handle Http operation that failed.
-     * Let the app continue.
-     * @param operation - name of the operation that failed
-     * @param result - optional value to return as the observable result
+     * @param operation -
+     * @param result - result
      */
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
 
-            console.error(error); // log to console instead
+            console.error(error); 
 
-            // Let the app keep running by returning an empty result.
+
             return of(result as T);
         };
     }
