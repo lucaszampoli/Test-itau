@@ -1,0 +1,158 @@
+GET {{host-url}}/product
+
+###
+
+GET {{host-url}}/cart
+
+###
+
+POST {{host-url}}/cart
+Content-Type: application/json
+
+{
+  "productId": "C0001",
+  "quantity": 4
+}
+
+###
+
+POST {{host-url}}/login
+Content-Type: application/json
+
+{
+  "username": "manager1@email.com",
+  "password": "123",
+  "rem": true
+}
+
+###
+
+GET {{host-url}}/cart
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+
+POST {{host-url}}/cart
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+]
+
+###
+
+PUT {{host-url}}/cart/C0002
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+1
+
+###
+POST {{host-url}}/cart/add
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "quantity": 4,
+  "productId": "C0002"
+}
+
+###
+
+DELETE {{host-url}}/cart/C0002
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+POST {{host-url}}/cart/checkout
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+
+GET {{host-url}}/order/finish/2147483642
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host-url}}/order/2147483641
+Authorization: Bearer {{token}}
+
+###
+
+GET {{host-url}}/profile/manager1@email.com
+Authorization: Bearer {{token}}
+
+
+
+###
+
+PUT {{host-url}}/profile
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "id": 2147483641,
+  "email": "customer1@email.com",
+  "password": "123",
+  "name": "customer1",
+  "phone": "1111111",
+  "address": "rua marte",
+  "active": false,
+  "role": "ROLE_CUSTOMER",
+  "authorities": [
+    {
+      "authority": "ROLE_CUSTOMER"
+    }
+  ]
+}
+
+###
+
+GET {{host-url}}/product/C0003
+
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+
+PUT {{host-url}}/seller/product/C0002/edit
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "productId": "C0002",
+  "productName": "camisa",
+  "productPrice": 20.00,
+  "productStock": 195,
+  "productDescription": "Camisa da moda",
+  "productIcon": "https://m.media-amazon.com/images/I/81eBUIBfJpL._AC_UL640_FMwebp_QL65_.jpg",
+  "productStatus": 2,
+  "categoryType": 2,
+  "updateTime": "2020-05-17T03:43:29.047+0000"
+}
+
+###
+
+POST {{host-url}}/seller/product/new
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+
+{
+  "productId": "C0001",
+  "productName": "Camiseta",
+  "productPrice": 20.00,
+  "productStock": 195,
+  "productDescription": "Camiseta legal",
+  "productIcon": "https://m.media-amazon.com/images/I/81eBUIBfJpL._AC_UL640_FMwebp_QL65_.jpg",
+  "productStatus": 0,
+  "categoryType": 2
+}
+
+###

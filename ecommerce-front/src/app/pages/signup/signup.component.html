@@ -1,0 +1,63 @@
+<h1 align="center" class="display-4 mb-5">Cadastro</h1>
+<div style="width:40%; margin: 25px auto" >
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label><b>Email </b></label>
+      <input [(ngModel)]="user.email" type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Email" email required autofocus  #email="ngModel">
+      <div  *ngIf="email.invalid && (email.dirty ||email.touched)" >
+          <div *ngIf="email.errors.required" >
+              Informe o Email
+          </div>
+          <div *ngIf="email.errors.email">
+              Email Invalido 
+          </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label><b>Nome</b></label>
+      <input [(ngModel)]="user.name" type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Nome" required #name="ngModel">
+        <div  *ngIf="name.invalid && (name.dirty ||name.touched)">
+            <div *ngIf="name.errors.required">
+                Campo Nome Obrigatorio
+            </div>
+            <div *ngIf="name.errors.minlength">
+                O Nome deve conter no minimo 3 caracteres.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label><b>Senha</b></label>
+      <input  [(ngModel)]="user.password" type="password" class="form-control form-control-lg" id="password" name="password" placeholder="senha" minlength="3" required #password="ngModel">
+        <div  *ngIf="password.invalid && (password.dirty ||password.touched)">
+            <div *ngIf="password.errors.required">
+              Campo Senha Obrigatorio
+            </div>
+            <div *ngIf="password.errors.minlength">
+              A Senha deve conter no minimo 3 caracteres.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label><b>Telefone</b></label>
+      <input [(ngModel)]="user.phone" type="text" class="form-control form-control-lg" id="phone" name="phone" placeholder="Telefone" required #phone="ngModel" >
+        <div  *ngIf="phone.invalid && (phone.dirty ||phone.touched)">
+            <div *ngIf="phone.errors.required">
+                Informe o telefone
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label><b>Endereço</b></label>
+      <input [(ngModel)]="user.address" type="text" class="form-control form-control-lg" id="address" name="address" placeholder="Endereço" required #address="ngModel">
+        <div  *ngIf="address.invalid && (address.dirty ||address.touched)">
+            <div *ngIf="address.errors.required">
+                Informe o endereço
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!form.form.valid" >Cadastrar</button>
+    </div>
+  </form>
+</div>
+
